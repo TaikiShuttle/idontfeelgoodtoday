@@ -1,23 +1,4 @@
-h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 1em;
-  text-shadow: 0 0 10px #000, 0 0 20px #333;
-  background: rgba(0,0,0,0.4);
-  padding: 1em 1.5em;
-  border-radius: 1em;
-  margin: 0;
-  text-align: center;
-  z-index: 2;
-  white-space: nowrap
-}
-body {
-  background: #000;
-  font-family: 'Matisse ITC', 'MatissePro', 'FOT-Matisse Pro', serif;
-}
+@import url(https://fonts.googleapis.com/css?family=Orbitron:700);
 
 /* Stars 
 ------------------------------------- */
@@ -81,4 +62,29 @@ body {
     opacity: 0;
     transform: scale(3.5);
   }
+}
+
+/* Syles 
+------------------------------------- */
+
+p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 300%;
+  text-shadow: 0 0 10px #000, 0 0 20px #333;
+  background: rgba(0,0,0,0.4);
+  padding: 1em 1.5em;
+  border-radius: 10px;
+  margin: 0;
+  text-align: center;
+  z-index: 2;
+  white-space: nowrap
+}
+
+body {
+  background: #000;
+  font-family: 'Matisse ITC', 'MatissePro', 'FOT-Matisse Pro', serif;
 }
