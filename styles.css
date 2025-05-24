@@ -1,4 +1,23 @@
-@import url(https://fonts.googleapis.com/css?family=Orbitron:700);
+h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1em;
+  text-shadow: 0 0 10px #000, 0 0 20px #333;
+  background: rgba(0,0,0,0.4);
+  padding: 1em 1.5em;
+  border-radius: 1em;
+  margin: 0;
+  text-align: center;
+  z-index: 2;
+  white-space: nowrap
+}
+body {
+  background: #000;
+  font-family: 'Matisse ITC', 'MatissePro', 'FOT-Matisse Pro', serif;
+}
 
 /* Stars 
 ------------------------------------- */
@@ -62,44 +81,4 @@
     opacity: 0;
     transform: scale(3.5);
   }
-}
-
-/* Demo syles 
-------------------------------------- */
-
-body {
-  background: #000;
-  font-family: 'Orbitron', sans-serif;
-}
-
-h1 {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  margin: -1.5em -2.5em;
-  width: 5em;
-  color: #011;
-  font-size: 5em;
-  text-align: center;
-  text-shadow: 0 0 3px #6cf;
-}
-h1:first-line {
-  font-size: 200%;
-}
-
-h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 2em;
-  text-shadow: 0 0 10px #000, 0 0 20px #333;
-  background: rgba(0,0,0,0.4);
-  padding: 1em 1.5em;
-  border-radius: 1em;
-  margin: 0;
-  text-align: center;
-  z-index: 2;
 }
