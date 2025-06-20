@@ -72,19 +72,42 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 300%;
+  color: #c8c6c6;
+  font-size: 150%;
   text-shadow: 0 0 10px #000, 0 0 20px #333;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0);
   padding: 1em 1.5em;
   border-radius: 10px;
   margin: 0;
-  text-align: center;
+  text-align: center
   z-index: 2;
-  white-space: nowrap
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 90vw;
 }
 
 body {
   background: #000;
-  font-family: 'Matisse ITC', 'MatissePro', 'FOT-Matisse Pro', serif;
+  font-family:  DM Serif Text 
+}
+
+marquee {
+  font-size: 80px;
+  color: #f6f607;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 1px #f6f607, 0 0 1px #f6f607, 0 0 1px #f6f607, 0 0 4px #f6f607, 0 0 5px #f6f607, 0 0 6px #f6f607, 0 0 7px #f6f607;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 3px #f6f607, 0 0 4px #f6f607, 0 0 5px #f6f607, 0 0 6px #f6f607, 0 0 7px #f6f607, 0 0 8px #f6f607;
+  }
+}
+
+aside{
+  text-align:right
 }
