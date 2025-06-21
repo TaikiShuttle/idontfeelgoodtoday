@@ -26,10 +26,15 @@
 <p>My life is so miserable and pathetic. 
   The days fly by while all I do is wish to die. I wallow at night as I think about my own human mortality, wishing for something more. I wish I was good at something. At family dinner my younger sister is much better than me, and she gets the families' attention.While all I have to show for myself is my recently made painting of a shark.  When asked about school all I can do is show my failing report card and look at the ground. My friends are so cool. I wish I could see them all the time. When I walk to school I see the wind hit the branches of the trees and I always wonder how the leaves feel.Do they want to be pushed around like that? My life is so pathetic.</p>
 <marquee> مَاشَاءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ ۗ إِنَّ ٱللَّهَ مَعَ ٱلصَّـٰبِرِينَ ۗ ٱلَّذِينَ آمَنُوا۟ وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ ٱللَّهِ ۗ أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ ۗ وَمَن يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُ ۗ إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا ۗ وَهُوَ ٱللَّطِيفُ ٱلْخَبِيرُ ۗ سَلَـٰمٌ هِىَ حَتَّىٰ مَطْلَعِ ٱلْفَجْرِ ۗ وَرَحْمَتِى وَسِعَتْ كُلَّ شَىْءٍ ۗ إِنَّهُ هُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ </marquee>
-<aside><img src="gifs/gif2.gif" </aside>
+
+<img style="float: left;" alt="" src="gifs/girl2.gif"/>
+<img style="float: right;" alt="" src="gifs/gif2.gif"/>
 
 <body><div id="audio-ui">
   <button id="playPause">▶</button>
+  <div id="volume-container">
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" orient="vertical">
+  </div>  
   <span id="nowPlaying">Loading...</span>
 </div>
 
@@ -53,6 +58,27 @@
     transition: 0.4s ease-in-out;
     z-index: 9999;
   }
+  #volume-container {
+  position: absolute;
+  bottom: 50px;
+  left: 10px;
+  height: 80px;
+  display: none;
+}
+
+#volumeSlider {
+  writing-mode: bt-lr; /* vertical */
+  -webkit-appearance: slider-vertical;
+  width: 20px;
+  height: 80px;
+  cursor: pointer;
+  accent-color: #ccc;
+}
+
+/* Show volume on hover */
+#audio-ui:hover #volume-container {
+  display: block;
+}
 
   #audio-ui:hover {
     opacity: 1;
@@ -100,6 +126,12 @@
   player.src = randomSong.file;
   nowPlaying.textContent = randomSong.name;
   player.play();
+
+  const volumeSlider = document.getElementById('volumeSlider');
+
+volumeSlider.addEventListener('input', () => {
+  player.volume = volumeSlider.value;
+});
 
   // Play/pause toggle
   playPause.addEventListener('click', () => {
