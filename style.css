@@ -111,3 +111,21 @@ marquee {
 aside{
   text-align:right
 }
+
+ .nav-links {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #750db1;
+  font-size: 150%;
+  text-shadow: 0 0 10px #000, 0 0 20px #333;
+  background: rgba(0, 0, 0, 0);
+  padding: 1em 1.5em;
+  border-radius: 10px;
+  margin: 0;
+  text-align: fixed;
+  z-index: 2;
+  font-size: 35px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+ }
