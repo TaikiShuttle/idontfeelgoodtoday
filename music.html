@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>music</title>
+  <link rel="icon" type="png" href="gifs/title.png"/>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+</script>
+<body>
+  <body style="background-color: black;">
+<h1>Music Player</h1> 
+<h2 style="color:whitesmoke">self prod but also stuff from friends and things I enjoy, idrk what else to put here</h2>
+<style>
+h1 {
+    text-align: center;
+    color:white
+}
+</style>
+<img src="gifs/girl.gif"center>
+<img align="right" src="gifs/miku.png">
+  <div id="app"></div>
+<script src="https://unpkg.com/webamp"></script>
+<script>
+    const app = document.getElementById("app")
+    const webamp = new Webamp();
+    webamp.renderWhenReady(app);
+</script>
+<body>
+    <div id="app" style="height: 100vh">
+      <!-- Webamp will attempt to center itself within this div -->
+    </div>
+    <script type="module">
+      import Webamp from "https://unpkg.com/webamp@%5E2";
+      const webamp = new Webamp({
+        availableSkins: [
+          {
+            url: "https://archive.org/cors/winampskin_mac_os_x_1_5-aqua/mac_os_x_1_5-aqua.wsz",
+            name: "Mac OSX v1.5 (Aqua)",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/0c13b6676b8941bd4afed01e66534278/asuka1.zip",
+            name: "Asuka",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/7b9df7892503371430aaf99ea7a172c0/Unreal_Skin_Of_The_Same_Game.wsz",
+            name: "Unreal Mech",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/f7ac1decc3785bc34c07a6caa4661ace/Rei_Ayanami_Akarui_Skin.wsz/",
+            name: "Rei",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/139c3e8f020b24c2bc3562a9ecacb231/Yunaofffx.wsz/",
+            name: "Yuna",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/3b3b8b07fb7d268f6092d4321f0a9b9c/Necromech.wsz/",
+            name: "Necromech",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/8567f6cebef402d2d19b22f858ceb46f/DJ_LAIN_Serial_ExP_2.wsz/",
+            name: "DJ Lain",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/db495c8a3d6a38e67140802f3ef4abbb/winamp_skin_wsz_06.wsz/",
+            name: "Azumanga",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/c4e6507d36c7cd088f8d3face19441aa/soundcheck1.wsz",
+            name: "Pale",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/8c766a8ddcf6477d7b66a00e53489214/armalyteburn.zip/",
+            name: "Sapphire",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/580ed76ffaa20948b39d6d9dca060655/angels_eyes.wsz/",
+            name: "Angel Eyes",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/c0b57a5b1957a5717ff256a3925dc7c7/Dosamp.wsz/",
+            name: "Dosamp Midnight",
+            
+          },
+          {
+            url: "https://skins.webamp.org/skin/a9e5286272e1931496587d43bbe1860e/Eric_Potter.wsz/",
+            name: "Eric Potter",
+          }
+         ],
+        initialTracks: [
+          {
+            metaData: {
+              artist: "1exposed",
+              title: "Itami",
+            },
+            // NOTE: Your audio file must be served from the same domain as your HTML
+            // file, or served with permissive CORS HTTP headers:
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+         url: "amp/1exposed - Itami.mp3",
+            duration: 225,
+          },
+          {
+            metaData: {
+              artist: "2.4 Billion Yen Bandit",
+              title: "Deep State Dykes",
+            },
+            url: "amp/2.4dykes.mp3",
+            duration: 70,
+          },
+          {
+            metaData: {
+              artist: "2.4 Billion Yen Bandit",
+              title: "Fractured Keys",
+            },
+            url: "amp/2.4 Billion Yen Bandit - Fractured Keys.mp3",
+            duration: 117,
+          },
+          {
+            metaData: {
+              artist: "2.4 Billion Yen Bandit",
+              title: "Lesbians Keep Getting Me Banned Off Of AirBnB",
+            },
+            url: "amp/2.4 Billion Yen Bandit - lesbians keep getting me banned off airbnb.mp3",
+            duration: 83,
+          },
+          {
+            metaData: {
+              artist: "556Kurumi",
+              title: "What U Want",
+            },
+            url: "amp/556Kurumi - What U Want.mp3",
+            duration: 110,
+          },
+          {
+            metaData: {
+              artist: "?",
+              title: "arceus vs diiialga",
+            },
+            url: "amp/arceus vs diiialga.mp3",
+            duration: 147,
+          },
+          {
+            metaData: {
+              artist: "Avast",
+              title: "gone again",
+            },
+            url: "amp/Avast - gone again ft. nosgov.mp3",
+            duration: 124,
+          },
+          {
+            metaData: {
+              artist: "Corniche Camomile",
+              title: "A New Step",
+            },
+            url: "amp/Corniche Camomile - A New Step.mp3",
+            duration: 1240,
+          },
+          {
+            metaData: {
+              artist: "DOMD",
+              title: "Ima pull up",
+            },
+            url: "amp/DOMD - Ima pull up.mp3",
+            duration: 146,
+          },
+          {
+            metaData: {
+              artist: "DOMD",
+              title: "Take Your Spirit",
+            },
+            url: "amp/DOMD - Take Your Spirit ft. Hi-C.mp3",
+            duration: 86,
+          },
+
+          {
+            metaData: {
+              artist: "hopoutyoshino",
+              title: "Show It",
+            },
+            url: "amp/hopoutyoshino - Show It ft. 556Kurumi.mp3",
+            duration: 120,
+          },
+
+          {
+            metaData: {
+              artist: "?",
+              title: "JUDYHOPSSCATPORN",
+            },
+            url: "amp/JUDYHOPSSCATPORN.mp3",
+            duration: 36,
+          },
+
+          {
+            metaData: {
+              artist: "nosgov",
+              title: "goes nowhere + avast",
+            },
+            url: "amp/nosgov - goes nowhere + avast.mp3",
+            duration: 149,
+          },
+
+          {
+            metaData: {
+              artist: "osquinn",
+              title: "Final Fantasy",
+            },
+            url: "amp/osquinn - Final Fantasy.mp3",
+            duration: 102,
+          },
+          {
+            metaData: {
+              artist: "rada",
+              title: "Icon",
+            },
+            url: "amp/rada - icon.mp3",
+            duration: 119,
+          },
+
+          {
+            metaData: {
+              artist: "suwakonem",
+              title: "Venom",
+            },
+            url: "amp/suwakonem - Venom ft. FlandreXo.mp3",
+            duration: 123,
+          },
+
+          {
+            metaData: {
+              artist: "Young Thug",
+              title: "Bad Bad Bad",
+            },
+            url: "amp/Young Thug - Bad Bad Bad.mp3",
+            duration: 149,
+          },
+        ],
+      });
+      webamp.renderWhenReady(document.getElementById("app"));
+    </script>
+</body>
