@@ -1,2 +1,1 @@
-# idontfeelgoodtoday
-wadawdw
+IFEELSTRANGE.TODAY
