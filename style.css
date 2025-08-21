@@ -113,11 +113,12 @@ aside{
 }
 
  .nav-links {
+
   position: absolute;
   top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #750db1;
+  color: #ffffff;
   font-size: 150%;
   text-shadow: 0 0 10px #000, 0 0 20px #333;
   background: rgba(0, 0, 0, 0);
@@ -129,3 +130,16 @@ aside{
   font-size: 35px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
  }
+ .nav-links a {
+  text-decoration: none;  
+  color: #ffffff;  
+}
+
+.nav-links a:visited {
+  color: #fcfdffec;  
+}
+
+.nav-links a:hover,
+.nav-links a:active {
+  color: #cccccc;  
+}
