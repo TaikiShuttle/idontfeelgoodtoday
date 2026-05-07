@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>>:p SYM Edition</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="lite-tools">
+      <div class="tools-panel">
+        <h1 class="tools-title">SYM's Rep Route Planner</h1>
+        <div class="tools-section">
+          <div class="tools-h">Your setup</div>
+          <div class="tools-grid">
+            <div class="frow">
+              <label for="culture">Culture</label>
+              <select id="culture">
+                <option value="Byzantine">Byzantine</option>
+                <option value="Syriac">Syriac</option>
+                <option value="Persian">Persian</option>
+              </select>
+            </div>
+            <div class="frow">
+              <label for="religion">Religion</label>
+              <select id="religion">
+                <option value="Christianity">Christianity</option>
+                <option value="Judaism">Judaism</option>
+                <option value="Zoroastrianism">Zoroastrianism</option>
+              </select>
+            </div>
+            <div class="frow">
+              <label for="religionLevel">Faith level</label>
+              <select id="religionLevel">
+                <option value="0">None</option>
+                <option value="1">Level 1</option>
+                <option value="2">Level 2</option>
+                <option value="3">Level 3</option>
+              </select>
+            </div>
+            <div class="frow">
+              <label for="langLevel">Language</label>
+              <select id="langLevel">
+                <option value="1">Broken (−5%)</option>
+                <option value="2" selected>Proficient (0%)</option>
+                <option value="3">Fluent/Native (+5%)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="tools-section">
+          <div class="tools-h">Courier route planner</div>
+          <div class="frow">
+            <label for="courierStart">Starting city</label>
+            <select id="courierStart" onchange="document.getElementById('courierResult').innerHTML = ''">
+              <option value="">— Pick your city —</option>
+              <option value="Antioch">Antioch</option>
+              <option value="Tyre">Tyre</option>
+              <option value="Damascus">Damascus</option>
+              <option value="Palmyra">Palmyra</option>
+              <option value="Ctesiphon">Ctesiphon</option>
+              <option value="Ecbatana">Ecbatana</option>
+            </select>
+          </div>
+          <div class="courier-quest-block">
+            <div class="courier-quest-block-title">Courier quests</div>
+            <div class="courier-quest-row">
+              <label class="courier-quest-check">
+                <input type="checkbox" id="shortQuestCheck" onchange="onCourierQuestChange()" />
+                <span class="courier-quest-badge short">Short</span>
+                <span class="courier-quest-label">Quest</span>
+              </label>
+              <select id="shortQuestDest" disabled>
+                <option value="">— Destination —</option>
+                <option value="Antioch">Antioch</option>
+                <option value="Tyre">Tyre</option>
+                <option value="Damascus">Damascus</option>
+                <option value="Palmyra">Palmyra</option>
+                <option value="Ctesiphon">Ctesiphon</option>
+                <option value="Ecbatana">Ecbatana</option>
+              </select>
+            </div>
+            <div class="courier-quest-row">
+              <label class="courier-quest-check">
+                <input type="checkbox" id="longQuestCheck" onchange="onCourierQuestChange()" />
+                <span class="courier-quest-badge long">Long</span>
+                <span class="courier-quest-label">Quest</span>
+              </label>
+              <select id="longQuestDest" disabled>
+                <option value="">— Destination —</option>
+                <option value="Antioch">Antioch</option>
+                <option value="Tyre">Tyre</option>
+                <option value="Damascus">Damascus</option>
+                <option value="Palmyra">Palmyra</option>
+                <option value="Ctesiphon">Ctesiphon</option>
+                <option value="Ecbatana">Ecbatana</option>
+              </select>
+            </div>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" id="courierReturn" checked />
+            <label for="courierReturn">Return to starting city</label>
+          </div>
+          <div class="set-btns">
+            <button type="button" class="btn btn-gold" onclick="runCourierPlanner()"> Plan route </button>
+          </div>
+          <div id="courierResult"></div>
+        </div>
+      </div>
+    </div>
+    <div class="lite-footer" aria-live="polite"> Completed routes: <b id="doneCount">0</b>
+    </div>
+    <script defer src="vendor/main-utils.js"></script>
+    <script defer src="vendor/main-engine.js"></script>
+    <script defer src="app.js"></script>
+  </body>
+</html>
