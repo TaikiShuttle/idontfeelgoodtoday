@@ -97,9 +97,16 @@
               </select>
             </div>
           </div>
-          <div class="check-row">
-            <input type="checkbox" id="courierReturn" checked />
-            <label for="courierReturn">Return to starting city</label>
+          <div class="check-row check-row-inline">
+            <label class="check-pill" for="courierReturn">
+              <input type="checkbox" id="courierReturn" checked />
+              <span>Return to starting city</span>
+            </label>
+
+            <label class="check-pill" for="includePersianCarpets" title="Include Persian Carpets in carry suggestions">
+              <input type="checkbox" id="includePersianCarpets" />
+              <span>Persian Carpets</span>
+            </label>
           </div>
           <div class="set-btns">
             <button type="button" class="btn btn-gold" onclick="runCourierPlanner()"> Plan route </button>
@@ -114,4 +121,5 @@
     <script defer src="vendor/main-engine.js"></script>
     <script defer src="app.js"></script>
   </body>
+
 </html>

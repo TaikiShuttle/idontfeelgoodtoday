@@ -26,6 +26,8 @@ function getPlayerState() {
     const n = parseInt(v ?? "", 10);
     return Number.isFinite(n) ? n : fallback;
   };
+  const getChk = (id, fallback = false) =>
+    document.getElementById(id)?.checked ?? fallback;
 
   // Tools-only: keep only the modifiers that affect pricing.
   // Provide defaults for the rest so engine helpers can run safely.
@@ -34,6 +36,8 @@ function getPlayerState() {
     religion: getVal("religion", "Christianity"),
     religionLevel: getNum("religionLevel", 0),
     langLevel: getNum("langLevel", 2),
+
+    includePersianCarpets: getChk("includePersianCarpets", false),
 
     backpack: "None",
     extraStorage: false,
@@ -54,10 +58,15 @@ function applyState(s) {
     const el = document.getElementById(id);
     if (el && v != null) el.value = v;
   };
+  const chk = (id, v) => {
+    const el = document.getElementById(id);
+    if (el && v != null) el.checked = !!v;
+  };
   set("culture", s.culture);
   set("religion", s.religion);
   set("religionLevel", s.religionLevel);
   set("langLevel", s.langLevel);
+  chk("includePersianCarpets", s.includePersianCarpets);
 }
 
 function autoSave() {
@@ -196,7 +205,13 @@ function renderCourierUI(out, data) {
   // Best "carry" suggestion per directed leg (from|to)
   const bestByLeg = {};
   try {
-    const enriched = enrichRoutes(generateRoutes(ps), ps);
+    const psForLuxury = {
+      ...ps,
+      sassanidRank: ps.includePersianCarpets ? 4 : ps.sassanidRank,
+    };
+    let enriched = enrichRoutes(generateRoutes(psForLuxury), psForLuxury);
+    if (!ps.includePersianCarpets)
+      enriched = enriched.filter((r) => r.good !== "Persian Carpets");
     for (const r of enriched) {
       if (r.profitPerTrip <= 0) continue;
       const k = r.buyCity + "|" + r.sellCity;
@@ -223,7 +238,13 @@ function renderCourierUI(out, data) {
   const legHtml = hopLegs
     .map((leg, idx) => {
       const best = bestByLeg[leg.from + "|" + leg.to];
-      const carryHtml = `<div class="trip-leg-hint">Carry: <b>${best?.good || "—"}</b></div>`;
+      const isLuxury =
+        best?.good === "Persian Carpets";
+      const luxuryStats =
+        isLuxury && best
+          ? ` <span class="muted">buy $${best.buyPrice} → sell $${best.sellPrice} · +$${best.profitPerUnit}/unit · +$${best.profitPerTrip}/trip · +$${best.profitPerMin}/min</span>`
+          : "";
+      const carryHtml = `<div class="trip-leg-hint">Carry: <b>${best?.good || "—"}</b>${luxuryStats}</div>`;
       const del = leg.deliver
         ? (() => {
             const reward = packageRewardAmount(leg.deliver.type, ps, leg.to);
@@ -266,6 +287,10 @@ document.getElementById("culture")?.addEventListener("change", updateAll);
 document.getElementById("religion")?.addEventListener("change", updateAll);
 document.getElementById("religionLevel")?.addEventListener("change", updateAll);
 document.getElementById("langLevel")?.addEventListener("change", updateAll);
+document.getElementById("includePersianCarpets")?.addEventListener(
+  "change",
+  updateAll,
+);
 
 setDoneCount(getDoneCount());
 

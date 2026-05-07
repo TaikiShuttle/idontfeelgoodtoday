@@ -149,6 +149,25 @@ button:focus {
   margin: 8px 0 12px;
 }
 
+.check-row-inline {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.check-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.check-pill input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+}
+
 /* Buttons */
 .set-btns {
   margin-top: 8px;
