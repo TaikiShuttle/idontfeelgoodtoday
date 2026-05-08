@@ -1,7 +1,7 @@
 // silkroadcalc-lite — tools-only: setup + courier route planner.
 // Depends on:
-// - ../silkroadcalc.eu/frontend/assets/js/main-utils.js
-// - ../silkroadcalc.eu/frontend/assets/js/main-engine.js
+// - vendor/main-utils.js
+// - vendor/main-engine.js
 
 const LS_KEY = "silkroadcalc_lite_tools_v1";
 const LS_DONE_KEY = "silkroadcalc_lite_done_v1";
@@ -38,6 +38,7 @@ function getPlayerState() {
     langLevel: getNum("langLevel", 2),
 
     includePersianCarpets: getChk("includePersianCarpets", false),
+    includeByzantineSilk: getChk("includeByzantineSilk", false),
 
     backpack: "None",
     extraStorage: false,
@@ -67,6 +68,7 @@ function applyState(s) {
   set("religionLevel", s.religionLevel);
   set("langLevel", s.langLevel);
   chk("includePersianCarpets", s.includePersianCarpets);
+  chk("includeByzantineSilk", s.includeByzantineSilk);
 }
 
 function autoSave() {
@@ -208,10 +210,13 @@ function renderCourierUI(out, data) {
     const psForLuxury = {
       ...ps,
       sassanidRank: ps.includePersianCarpets ? 4 : ps.sassanidRank,
+      byzantineRank: ps.includeByzantineSilk ? 4 : ps.byzantineRank,
     };
     let enriched = enrichRoutes(generateRoutes(psForLuxury), psForLuxury);
     if (!ps.includePersianCarpets)
       enriched = enriched.filter((r) => r.good !== "Persian Carpets");
+    if (!ps.includeByzantineSilk)
+      enriched = enriched.filter((r) => r.good !== "Byzantine Silk");
     for (const r of enriched) {
       if (r.profitPerTrip <= 0) continue;
       const k = r.buyCity + "|" + r.sellCity;
@@ -238,13 +243,7 @@ function renderCourierUI(out, data) {
   const legHtml = hopLegs
     .map((leg, idx) => {
       const best = bestByLeg[leg.from + "|" + leg.to];
-      const isLuxury =
-        best?.good === "Persian Carpets";
-      const luxuryStats =
-        isLuxury && best
-          ? ` <span class="muted">buy $${best.buyPrice} → sell $${best.sellPrice} · +$${best.profitPerUnit}/unit · +$${best.profitPerTrip}/trip · +$${best.profitPerMin}/min</span>`
-          : "";
-      const carryHtml = `<div class="trip-leg-hint">Carry: <b>${best?.good || "—"}</b>${luxuryStats}</div>`;
+      const carryHtml = `<div class="trip-leg-hint">Carry: <b>${best?.good || "—"}</b></div>`;
       const del = leg.deliver
         ? (() => {
             const reward = packageRewardAmount(leg.deliver.type, ps, leg.to);
@@ -288,6 +287,10 @@ document.getElementById("religion")?.addEventListener("change", updateAll);
 document.getElementById("religionLevel")?.addEventListener("change", updateAll);
 document.getElementById("langLevel")?.addEventListener("change", updateAll);
 document.getElementById("includePersianCarpets")?.addEventListener(
+  "change",
+  updateAll,
+);
+document.getElementById("includeByzantineSilk")?.addEventListener(
   "change",
   updateAll,
 );
